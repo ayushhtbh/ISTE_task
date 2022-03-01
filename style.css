@@ -1,0 +1,68 @@
+body{
+	background-color: black;
+}
+
+.title{
+    color: rgb(101, 101, 252);
+    font-family: 'Roboto';
+    text-align: center;
+    font-size: 4rem;
+}
+
+.text{
+    color: rgb(101, 101, 252);
+    font-family: 'Roboto';
+    text-align: center;
+    font-size: 2rem;
+}
+
+.text2{
+    color: rgb(101, 101, 252);
+    font-family: 'Roboto';
+    text-align: center;
+    font-size: 4rem;
+}
+
+.stat{
+    color: white;
+    display: inline;
+    font-family: 'Roboto';
+    padding-left: 14px;
+}
+
+.stat2{
+    color: white;
+    display: inline;
+    font-family: 'Roboto';
+    padding-left: 14px;
+    font-size: 30px;
+}
+
+.space{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+    }
+
+.center{
+    margin: auto;
+    display: block;
+}
+
+div.main_content{
+	text-align: center;
+}
+
+#sub_count{
+	margin-top: 5px;
+	display: none;
+	font-size: 100px;
+	color: white;
+	border-radius: 20px;
+	padding: 5px 10px;
+}
+
+.playlists{
+    margin-left: 4em;
+    margin-right: 2em;
+}

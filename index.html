@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTE | VITVellore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <img class="center" src="logo.png" alt="logo">
+    <p class="title">ISTE VIT's YouTube Overview</p>
+
+    <div>
+
+        <p style="margin: 5px;" class="text">Latest Youtube Video:</p> <br>
+
+        <br><iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/qb2NcxUhFl0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    <div class="main_content">
+
+        <p class="site_heading text2">Subscriber Counter:</p>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var output = this.responseText;
+                    output = JSON.parse(output);
+                    document.getElementById("sub_count").style.display = "inline";
+                    if (output.items[0].statistics["hiddenSubscriberCount"] === true) {
+                        console.log("Subscriber count is hidden by the channel");
+                        return document.getElementById("sub_count").innerHTML = "N/A";
+                    }
+                    document.getElementById("sub_count").innerHTML = output.items[0].statistics["subscriberCount"];
+                    document.getElementById("view_count").innerHTML = output.items[0].statistics["viewCount"];
+                    document.getElementById("video_count").innerHTML = output.items[0].statistics["videoCount"];
+                    document.getElementById("desc").innerHTML = output.items[0].snippet["description"];
+                }
+                else if (this.readyState == 4) {
+                    return console.log(JSON.parse(this.responseText)["error"]["message"]);
+                }
+            };
+            xhttp.open("GET", "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=" + 'UCVRlM9S7LDPyo_mwNpBrnXg' + "&key=AIzaSyCLfbIRxzzHkcyog94TNecDknfbrKhywUg", true);
+            xhttp.send();
+        </script>
+        <div class="space">
+            <span class="stat" id="sub_count"></span>
+        </div>
+        <div class="space">
+            <span class="text">Total Views:</span>
+            <span class="stat2" id="view_count"></span>
+
+        </div>
+        <div class="space">
+
+            <span class="text">Total Videos:</span>
+            <span class="stat2" id="video_count"></span>
+        </div>
+        <div class="space">
+
+            <span class="text">Description:</span>
+            <span class="stat2" id="desc"></span>
+        </div>
+    </div>
+    <div>
+        <p class="text">Playlists:</p>
+        <iframe class="playlists" width="400" height="315"
+            src="https://www.youtube.com/embed/videoseries?list=PLtArheW_rmIY5XaLcEvzslM3Jobz5l_gX"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <iframe class="playlists" width="400" height="315"
+            src="https://www.youtube.com/embed/videoseries?list=PLtArheW_rmIbXtsm7Ff4eYKWut-CgC5Gr"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <iframe class="playlists" width="400" height="315"
+            src="https://www.youtube.com/embed/videoseries?list=PLtArheW_rmIa0fv7-Hv78mg6mbhOHGgbJ"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+
+
+
+</body>
+
+</html>
